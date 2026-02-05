@@ -1,0 +1,41 @@
+@import url("./common/catppuccin-latte.css");
+@import url("./common/base.css");
+@import url("./common/vertical.css");
+
+/* ================= WINDOW ================= */
+
+window#waybar {
+    background-color: rgba(239, 241, 245, 0.8);
+    border-radius: 15px;
+    color: #4c4f69;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= CLOCK ================= */
+#custom-notification,
+#custom-dashboard,
+#clock {
+    color: #4c4f69;
+}
+
+/* ================= MODULE STYLES ================= */
+
+#cpu,
+#memory,
+#pulseaudio,
+#battery,
+#backlight {
+    color: #4c4f69;
+}
+
+/* ================= WORKSPACES ================= */
+
+#workspaces button {
+    color: #9ca0b0;
+}
+
+#workspaces button.active,
+#workspaces button:hover {
+    color: #4c4f69;
+    transition: all 0.3s ease;
+}

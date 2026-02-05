@@ -1,0 +1,158 @@
+{
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{0} {icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/dashboard": {
+        "format": "ᓚᘏᗢ",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/dashboard.sh"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+        },
+        "tooltip": false,
+    },
+    "hyprland/window": {
+        "format": "{class}",
+        "separate-outputs": false,
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰊗  {ipaddr}/{cidr}",
+		"format-disconnected": "Finding...",
+        "tooltip-format": "󰊗  {ifname} via {gwaddr}",
+        "tooltip-format-wifi": "  {essid} - {signalStrength}% \n ↑ Up: {bandwidthUpBytes} \n ↓ Down: {bandwidthDownBytes} \nEdit network in tray icon!",
+        "tooltip-format-ethernet": "  {ifname} \n ↑ Up: {bandwidthUpBytes} \n ↓ Down: {bandwidthDownBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+		"max-length": 50,
+        "interval": 5,
+    },
+    "cpu": {
+        "interval": 10,
+		"format": "CPU: {}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+		"format": "RAM: {}%",
+        "max-length": 10
+    },
+	"backlight": {
+        "device": "intel_backlight",
+		"format": "{icon} {percent}%",
+        "justify": "center",
+        "format-icons": [
+            "",
+            "",
+			"",
+            "",
+            "",
+            "",
+            "",
+			"",
+            ""
+        ],
+        "tooltip-format": "Brightness: {percent}%"
+    },
+	"pulseaudio": {
+        "scroll-step": 5,
+        "justify": "center",
+        "format": "{icon} {volume}%",
+        "format-icons": {
+			"default": [
+                "",
+                "",
+                ""
+            ]
+		},
+        "on-click": "pavucontrol",
+        "tooltip-format": "Volume: {volume}%"
+    },
+    "battery": {
+		"interval": 5,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+		"format": "{icon} {capacity}%",
+        "justify": "center",
+        "format-charging": " {capacity}%",
+        "format-icons": [
+            "",
+			"",
+            "",
+			"",
+            ""
+        ],
+		"tooltip-format": "{capacity}% - {time}"
+    },
+
+    "custom/playerctl": {
+        "interval": 2,
+        "max-length": 40,
+        "format": "{}",
+        "tooltip": true,
+        "tooltip-format": "Scroll\n- Up for previous\n- Down for next",
+        "exec": "~/.config/waybar/modules/playerctl.sh",
+        "on-scroll-down": "playerctl next",
+        "on-scroll-up": "playerctl previous"
+    },
+
+    "custom/cava": {
+        "format": "{}",
+        "exec": "~/.config/waybar/modules/cava.sh"
+    },
+
+	"clock": {
+		"format": "<span color='#fab387'></span> {:%H:%M}",
+		"tooltip-format": "<big><span color='#cdd6f4'>{:%Y %B}</span></big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "<span color='#eba0ac'></span> <span color='#cdd6f4'>{:%Y-%m-%d}</span>",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span color='#cdd6f4'><b>{}</b></span>",
+				"days": "<span color='#cdd6f4'><b>{}</b></span>",
+				"weeks": "<span color='#f5c2e7'><b>W{}</b></span>",
+				"weekdays": "<span color='#f5c2e7'><b>{}</b></span>",
+				"today": "<span color='#eba0ac'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
+	}
+}

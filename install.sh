@@ -19,7 +19,7 @@ yay -Syu --noconfirm
 # Cài đặt các gói phần mềm cần thiết
 sudo pacman -S --needed --noconfirm kitty zsh neovim
 sudo pacman -S --needed --noconfirm fcitx5-qt fcitx5-im fcitx5-bamboo unzip 
-sudo pacman -S --needed --noconfirm hyprland swww unzip tar fastfetch
+sudo pacman -S --needed --noconfirm hyprland hyprlock unzip tar fastfetch
 sudo pacman -S --needed --noconfirm sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg qt6-declarative
 
 # Giải nén theme cho sddm
@@ -56,9 +56,9 @@ packages=(
     swww waybar zenity vencord vesktop selectdefaultapplication visual-studio-code-bin cliphist
     font-manager ttf-jetbrains-mono ttf-jetbrains-mono-nerd
     pipewire pipewire-module-xrdp pipewire-screenaudio-git pipewire-session-manager xdg-desktop-portal-hyprland
-    electron obs-studio ffmpeg vlc cava opera opera-ffmpeg-codecs
+    electron obs-studio ffmpeg cava opera opera-ffmpeg-codecs
 	grimblast gpu-screen-recorder hyprpicker matugen-bin python-gpustat btop
-    github-desktop flatpak superfile pipes.sh
+    github-desktop flatpak superfile pipes.sh mpv
 )
 
 install_package() {

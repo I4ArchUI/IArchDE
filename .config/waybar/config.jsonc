@@ -1,0 +1,47 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "height": 15,
+    "width": 1910,
+    "margin-top": 5,
+    "include": [
+		"./common/modules.jsonc"
+	],
+    "modules-left": [
+        "group/left-actions",
+        "custom/cava"
+    ],
+    "modules-center": [
+        "custom/playerctl",
+    ],
+    "modules-right": [
+        "group/hardware",
+        "tray",
+        "group/right-status",
+        "clock",
+        "custom/notification"
+    ],
+    "group/left-actions": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/dashboard",
+            "hyprland/workspaces"
+        ]
+    },
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory"
+        ]
+    },
+    "group/right-status": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "battery",
+            "backlight"
+        ]
+    },
+}

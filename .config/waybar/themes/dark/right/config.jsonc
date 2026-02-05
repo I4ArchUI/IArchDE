@@ -1,0 +1,98 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "right",
+	"width": 15,
+	"height": 1070,
+    "margin-right": 5,
+	"include": [
+        "./common/modules.jsonc"
+    ],
+	"modules-left": [
+        "custom/notification",
+		"custom/dashboard",
+        "hyprland/workspaces"
+    ],
+	"modules-center": [],
+    "modules-right": [
+		"tray",
+        "pulseaudio",
+        "battery",
+		"backlight",
+        "clock"
+	],
+    "backlight": {
+        "device": "intel_backlight",
+		"format": "{icon}\n{percent}%",
+        "justify": "center",
+		"format-icons": [
+            "",
+            "",
+			"",
+            "",
+			"",
+            "",
+            "",
+			"",
+            ""
+		],
+        "tooltip-format": "Brightness: {percent}%"
+    },
+	"pulseaudio": {
+        "scroll-step": 5,
+		"justify": "center",
+        "format": "{icon}\n{volume}%",
+        "format-icons": {
+			"default": [
+                "",
+				"",
+                ""
+            ]
+		},
+        "on-click": "pavucontrol",
+		"tooltip-format": "Volume: {volume}%"
+    },
+    "battery": {
+		"interval": 5,
+        "states": {
+			"warning": 30,
+            "critical": 15
+        },
+		"format": "{icon}\n{capacity}%",
+        "justify": "center",
+		"format-charging": "{icon}\n{capacity}%",
+        "format-icons": [
+            "",
+			"",
+            "",
+			"",
+            ""
+        ],
+		"tooltip-format": "{capacity}% - {time}"
+    },
+	"clock": {
+        "format": "{:%H\n%M}",
+        "tooltip-format": "<big><span color='#cdd6f4'>{:%Y %B}</span></big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%m\n%d}",
+        "calendar": {
+			"mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+			"on-scroll": 1,
+            "format": {
+				"months": "<span color='#cdd6f4'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks": "<span color='#f5c2e7'><b>W{}</b></span>",
+				"weekdays": "<span color='#f5c2e7'><b>{}</b></span>",
+                "today": "<span color='#eba0ac'><b><u>{}</u></b></span>"
+			}
+        },
+        "actions": {
+			"on-click-right": "mode",
+            "on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    }
+}
