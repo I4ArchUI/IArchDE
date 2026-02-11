@@ -1,0 +1,142 @@
+/* Catppuccin Latte Color Palette - Enhanced */
+@define-color base #eff1f5;
+@define-color mantle #e6e9ef;
+@define-color crust #dce0e8;
+@define-color text #4c4f69;
+@define-color subtext0 #6c6f85;
+@define-color subtext1 #5c5f77;
+@define-color surface0 #ccd0da;
+@define-color surface1 #bcc0cc;
+@define-color surface2 #acb0be;
+
+@define-color red #d20f39;
+@define-color blue #1e66f5;
+@define-color lavender #7287fd;
+@define-color sapphire #209fb5;
+
+@define-color background-alt @surface0;
+@define-color selected @blue;
+@define-color hover @lavender;
+@define-color urgent @red;
+
+* {
+    color: @text;
+    all: unset;
+    font-size: 14px;
+    font-family: "JetBrains Mono Nerd Font", "SF Pro Display", -apple-system, system-ui, sans-serif;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notification-row {
+    outline: none;
+    margin: 0;
+    padding: 0px;
+}
+
+.floating-notifications.background .notification-row .notification-background {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fb 100%);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(30, 102, 245, 0.12);
+    border-radius: 24px;
+    margin: 16px;
+    padding: 0;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification {
+    padding: 6px;
+    border-radius: 12px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification.critical {
+    border: 2px solid @urgent;
+    box-shadow: 0 0 24px rgba(210, 15, 57, 0.2);
+}
+
+.floating-notifications.background .notification-row .notification-background .notification .notification-content {
+    margin: 14px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification>*:last-child>* {
+    min-height: 3.4em;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification>*:last-child>* .notification-action {
+    border-radius: 10px;
+    background: linear-gradient(145deg, rgba(30, 102, 245, 0.08) 0%, rgba(30, 102, 245, 0.12) 100%);
+    margin: 6px;
+    border: 1.5px solid rgba(30, 102, 245, 0.2);
+    padding: 6px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    font-weight: 500;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification>*:last-child>* .notification-action:hover {
+    background: linear-gradient(145deg, @blue 0%, @lavender 100%);
+    border-color: @blue;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(30, 102, 245, 0.25);
+}
+
+.floating-notifications.background .notification-row .notification-background .notification>*:last-child>* .notification-action:active {
+    background: @blue;
+    color: white;
+    transform: translateY(0px);
+}
+
+.image {
+    margin: 10px 20px 10px 0px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.summary {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: @text;
+    letter-spacing: 0.2px;
+}
+
+.body {
+    font-size: 0.9rem;
+    color: @subtext0;
+    line-height: 1.4;
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button {
+    margin: 6px;
+    padding: 4px;
+    border-radius: 8px;
+    background: rgba(204, 208, 218, 0.5);
+    border: 1px solid rgba(188, 192, 204, 0.3);
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button:hover {
+    background: @blue;
+    color: white;
+    border-color: @blue;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(30, 102, 245, 0.25);
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button:active {
+    background: @lavender;
+    color: white;
+    transform: scale(0.95);
+}
+
+.notification.critical progress {
+    background-color: @urgent;
+}
+
+.notification.low progress,
+.notification.normal progress {
+    background: linear-gradient(90deg, @blue 0%, @lavender 100%);
+}
+
+progressbar {
+    background-color: rgba(188, 192, 204, 0.4);
+}

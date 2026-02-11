@@ -86,12 +86,35 @@ apps=(
     i4archdashboard
     i4archmenu
 	i4archsettings
+    i4archimagepreview
 )
 
 for package in "${packages[@]}"; do
     sudo install -Dm755 ./apps/$package /usr/bin/$package
 done
 
+# Tạo desktop entry cho i4archimagepreview app
+
+DESKTOP_FILE="$HOME/.local/share/applications/i4archimagepreview.desktop"
+
+# Đảm bảo thư mục tồn tại
+mkdir -p "$(dirname "$DESKTOP_FILE")"
+
+cat > "$DESKTOP_FILE" << 'EOF'
+[Desktop Entry]
+Type=Application
+Name=i4archimagepreview
+Comment=
+Exec=i4archimagepreview %f
+Icon=image-viewer
+Terminal=false
+Categories=Graphics;Viewer;
+MimeType=image/png;image/jpeg;image/jpg;image/gif;image/bmp;image/webp;image/svg+xml;image/tiff;
+NoDisplay=false
+EOF
+
+# Cập nhật database
+update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 read -p "Do you want to install window font? (Bạn có muốn cài đặt font của window không?) [Y/n]: " answer
@@ -160,10 +183,10 @@ if [ -d ~/.config/gtk-3.0 ]; then
 fi
 
 cp -r ./themes/gtk-3.0 ~/.config/
-nwg-look -a
 echo "Done!"
 
 # Kích hoạt các dịch vụ cần thiết
 sudo systemctl enable --now NetworkManager
 sudo systemctl enable --now docker
-sudo systemctl enable --now sddm
+sudo systemctl enable sddm
+reboot
