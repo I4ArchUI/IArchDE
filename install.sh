@@ -87,6 +87,7 @@ apps=(
     i4archmenu
 	i4archsettings
     i4archimagepreview
+	i4remotecamera
 )
 
 for package in "${packages[@]}"; do
@@ -94,7 +95,6 @@ for package in "${packages[@]}"; do
 done
 
 # Tạo desktop entry cho i4archimagepreview app
-
 DESKTOP_FILE="$HOME/.local/share/applications/i4archimagepreview.desktop"
 
 # Đảm bảo thư mục tồn tại
@@ -115,6 +115,13 @@ EOF
 
 # Cập nhật database
 update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
+sudo firewall-cmd --add-port=80/tcp --permanent 
+sudo firewall-cmd --add-port=8080/tcp --permanent 
+sudo firewall-cmd --add-port=443/tcp --permanent 
+sudo firewall-cmd --add-port=4104/tcp --permanent 
+sudo firewall-cmd --add-port=4104/udp --permanent 
+sudo firewall-cmd --reload
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 read -p "Do you want to install window font? (Bạn có muốn cài đặt font của window không?) [Y/n]: " answer
